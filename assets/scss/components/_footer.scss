@@ -1,0 +1,50 @@
+.footer {
+	background-color: $black;
+	color: $white;
+	height: $footer-height;
+
+	> .grid-container {
+		height: 100%;
+
+		> .grid-x {
+			height: 100%;
+		}
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	a {
+		color: $white;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.copyright {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.credits {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: 100%;
+
+		p {
+			font-size: small;
+
+			a {
+				margin-right: 1em;
+			}
+
+			img {
+				width: 300px;
+			}
+		}
+	}
+}

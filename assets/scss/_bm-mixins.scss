@@ -1,0 +1,80 @@
+// ------------------------
+//    MIXINS & FUNCTIONS
+// ------------------------
+
+@function bm-multiplier($breakpoint) {
+  @return rem-calc(map-get($breakpoints, $breakpoint)) / $global-width;
+}
+
+@function _m($size) {
+  @return $size * bm-multiplier(medium);
+}
+
+@function _l($size) {
+  @return $size * bm-multiplier(large);
+}
+
+@function _xl($size) {
+  @return $size * bm-multiplier(xlarge);
+}
+
+@function _xxl($size) {
+  @return $size * bm-multiplier(xxlarge);
+}
+
+@function _xxxl($size) {
+  @return $size * bm-multiplier(ylarge);
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@function image-url( $url ) {
+    @return url('../images/#{$url}');
+}
+
+@function div($psd-line-height, $psd-font-size) {
+  @return $psd-line-height / $psd-font-size;
+}
+
+@mixin kage-bunshin() {
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+// @include backlight(0, 5vw, 5vw, 0.75, #0fffc1, #7e0fff, 10s);
+@mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
+  &:after {
+    position: absolute;
+    content: "";
+    top: $y;
+    left: $x;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale($size);
+    -webkit-filter: blur($spread);
+    -moz-filter: blur($spread);
+    -ms-filter: blur($spread);
+    filter: blur($spread);
+    background: linear-gradient(270deg, $colorA, $colorB);
+    background-size: 200% 200%;
+    animation: animateGlow $duration ease infinite;
+
+    @keyframes animateGlow {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+  }
+}

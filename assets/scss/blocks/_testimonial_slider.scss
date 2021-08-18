@@ -1,0 +1,172 @@
+.testimonial_slider {
+	text-align: center;
+
+	> .grid-container {
+		@include breakpoint(small only) {
+			padding: 2em 1.5em;
+		}
+
+		@include breakpoint(medium) {
+			padding: 2em 4em;
+		}
+
+		@include breakpoint(large) {
+			padding: 5% 23%;
+		}
+	}
+
+	h2 {
+		font-family: $body-font-family;
+		font-weight: 700;
+		font-size: 1.2rem;
+		letter-spacing: .1em;
+		color: $blue;
+		margin-bottom: 1em;
+
+		@include breakpoint(large) {
+			font-size: _l(24px);
+			line-height: div(30, 24);
+		}
+
+		@include breakpoint(xlarge) {
+			font-size: _xl(24px);
+		}
+
+		@include breakpoint(xxlarge) {
+			font-size: _xxl(24px);
+		}
+
+		@include breakpoint(ylarge) {
+			font-size: _xxxl(24px);
+		}
+
+		@include breakpoint(zlarge) {
+			font-size: rem-calc(24px);
+		}
+	}
+
+	blockquote {
+		border-left: 0;
+
+		p {
+			font-family: $header-font-family;
+			font-style: italic;
+			font-size: 1rem;
+			color: #1a1e22;
+
+			@include breakpoint(medium) {
+				font-size: 1.5rem;
+			}
+
+			@include breakpoint(large) {
+				font-size: _l(48px);
+				line-height: div(77, 48);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(48px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(48px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(48px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(48px);
+			}
+		}
+	}
+
+	p {
+		&.by-line {
+			font-weight: 700;
+			color: $blue;
+
+			@include breakpoint(large) {
+				font-size: _l(24px);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(24px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(24px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(24px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: 24px;
+			}
+		}
+	}
+
+	.slider-item {
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.slick-prev,
+	.slick-next {
+		top: 28%;
+
+		&::before {
+			font-family: $extra-font-family;
+			font-weight: 500;
+			font-size: 3rem;
+			color: $red;
+
+			@include breakpoint(large) {
+				font-size: _l(71.75px);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(71.75px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(71.75px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(71.75px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(71.75px);
+			}
+		}
+	}
+
+	.slick-next {
+		right: -4%;
+
+		@include breakpoint(large) {
+			right: -8%;
+		}
+
+		&::before {
+			content: '>';
+		}
+	}
+
+	.slick-prev {
+		left: -5%;
+
+		@include breakpoint(large) {
+			left: -8%;
+		}
+
+		&::before {
+			content: '<';
+		}
+	}
+}

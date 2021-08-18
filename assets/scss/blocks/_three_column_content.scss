@@ -1,0 +1,135 @@
+.three_column_content {
+	> .grid-container {
+		padding: 2em 1em 0;
+
+		@include breakpoint(medium) {
+			padding: 2em 1em;
+		}
+
+		@include breakpoint(large) {
+			padding: 5% 16%;
+		}
+	}
+
+	.content-1 {
+		@include breakpoint(small only) {
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(medium) {
+			padding-right: 1em;
+		}
+
+		@include breakpoint(large) {
+			padding-right: 16%;
+		}
+	}
+
+	.content-2 {
+		@include breakpoint(small only) {
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(medium) {
+			padding: 0 .5em;
+		}
+
+		@include breakpoint(large) {
+			padding: 0 8%;
+		}
+	}
+
+	.content-3 {
+		@include breakpoint(small only) {
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(medium) {
+			padding-left: 1em;
+		}
+
+		@include breakpoint(large) {
+			padding-left: 16%;
+		}
+	}
+
+	img {
+		@include breakpoint(large) {
+			margin-bottom: _l(18px);
+		}
+
+		@include breakpoint(xlarge) {
+			margin-bottom: _xl(18px);
+		}
+
+		@include breakpoint(xxlarge) {
+			margin-bottom: _xxl(18px);
+		}
+
+		@include breakpoint(ylarge) {
+			margin-bottom: _xxxl(18px);
+		}
+
+		@include breakpoint(zlarge) {
+			margin-bottom: 18px;
+		}
+	}
+
+	h3 {
+		color: $blue;
+		margin-bottom: 1rem;
+		font-size: 1.2rem;
+
+		@include breakpoint(large) {
+			font-size: _l(32px);
+		}
+
+		@include breakpoint(xlarge) {
+			font-size: _xl(32px);
+		}
+
+		@include breakpoint(xxlarge) {
+			font-size: _xxl(32px);
+		}
+
+		@include breakpoint(ylarge) {
+			font-size: _xxxl(32px);
+		}
+
+		@include breakpoint(zlarge) {
+			font-size: rem-calc(32px);
+		}
+	}
+
+	p {
+		color: #808080;
+
+		@include breakpoint(large) {
+			font-size: _l(16px);
+			line-height: div(36, 16);
+		}
+
+		@include breakpoint(xlarge) {
+			font-size: _xl(16px);
+		}
+
+		@include breakpoint(xxlarge) {
+			font-size: _xxl(16px);
+		}
+
+		@include breakpoint(ylarge) {
+			font-size: _xxxl(16px);
+		}
+
+		@include breakpoint(zlarge) {
+			font-size: rem-calc(16px);
+		}
+
+		&.has-image {
+			min-height: 105px;
+		}
+	}
+}

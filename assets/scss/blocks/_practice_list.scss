@@ -1,0 +1,232 @@
+.practice_list {
+	text-align: center;
+	overflow: hidden;
+
+	> .grid-container {
+		padding: 0 1em 2em;
+
+		@include breakpoint(large) {
+			padding: 0 8% 2%;
+		}
+	}
+
+	.heading {
+		color: $white;
+		padding: 2em 0 1em;
+		position: relative;
+		z-index: 0;
+
+		@include breakpoint(small only) {
+			margin-bottom: 1em;
+		}
+
+		@include breakpoint(medium only) {
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(large) {
+			padding: 6% 27% 8%;
+		}
+
+		&::before {
+			content: '';
+			background-color: $blue;
+			width: 100vw;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: calc(-50vw + 50%);
+			z-index: -1;
+		}
+
+		h2 {
+			letter-spacing: .02em;
+
+			@include breakpoint(large) {
+				font-size: _l(48px);
+				line-height: div(65, 48);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(48px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(48px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(48px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(48px);
+			}
+		}
+
+		h4 {
+			font-family: $body-font-family;
+			font-weight: 700;
+			letter-spacing: .08em;
+
+			@include breakpoint(large) {
+				font-size: _l(24px);
+				line-height: div(30, 24);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(24px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(24px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(24px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(24px);
+			}
+		}
+
+		p {
+			letter-spacing: .08em;
+
+			@include breakpoint(large) {
+				font-size: _l(16px);
+				line-height: div(36, 16);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(16px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(16px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(16px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(16px);
+			}
+		}
+	}
+
+	.list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		list-style: none;
+		position: relative;
+
+		@include breakpoint(medium down) {
+			margin: 0;
+		}
+
+		@include breakpoint(large) {
+			margin: _l(-85px) 0 0;
+		}
+
+		@include breakpoint(xlarge) {
+			margin: _xl(-85px) 0 0;
+		}
+
+		@include breakpoint(xxlarge) {
+			margin: _xxl(-85px) 0 0;
+		}
+
+		@include breakpoint(ylarge) {
+			margin: _xxxl(-85px) 0 0;
+		}
+
+		@include breakpoint(zlarge) {
+			margin: -85px 0 0;
+		}
+
+		li {
+			margin-bottom: 2em;
+
+			@include breakpoint(medium) {
+				width: 31.75%;
+				margin-bottom: 4%;
+			}
+
+			.image {
+				margin-bottom: 35px;
+				transition: all .5s;
+
+				&:hover {
+					@include kage-bunshin();
+				}
+			}
+
+			h3 {
+				color: $blue;
+				text-transform: uppercase;
+				margin-bottom: .6em;
+
+				@include breakpoint(large) {
+					font-size: _l(36px);
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: _xl(36px);
+				}
+
+				@include breakpoint(xxlarge) {
+					font-size: _xxl(36px);
+				}
+
+				@include breakpoint(ylarge) {
+					font-size: _xxxl(36px);
+				}
+
+				@include breakpoint(zlarge) {
+					font-size: rem-calc(36px);
+				}
+			}
+
+			p {
+				color: #636363;
+				margin-bottom: 0;
+
+				@include breakpoint(large) {
+					font-size: _l(16px);
+					line-height: div(36, 16);
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: _xl(16px);
+				}
+
+				@include breakpoint(xxlarge) {
+					font-size: _xxl(16px);
+				}
+
+				@include breakpoint(ylarge) {
+					font-size: _xxxl(16px);
+				}
+
+				@include breakpoint(zlarge) {
+					font-size: rem-calc(16px);
+				}
+
+				&.more-link {
+					a {
+						font-weight: 700;
+						color: $red;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+}

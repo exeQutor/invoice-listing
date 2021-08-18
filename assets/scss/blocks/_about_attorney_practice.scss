@@ -1,0 +1,558 @@
+.about_attorney_practice {
+	background-color: $white;
+	overflow: hidden;
+
+	> .grid-container {
+		padding: 2em 1em 0;
+
+		@include breakpoint(large) {
+			padding: 0 16%;
+		}
+	}
+
+	.heading {
+		display: flex;
+
+		@include breakpoint(small only) {
+			flex-direction: column;
+		}
+
+		@include breakpoint(medium down) {
+			margin-bottom: 5%;
+		}
+
+		@include breakpoint(large) {
+			padding: 6% 0 5%;
+		}
+
+		h4 {
+			font-family: $body-font-family;
+			font-size: 1rem;
+			font-weight: 700;
+			letter-spacing: .08em;
+			margin-right: 6%;
+			color: $blue;
+
+			@include breakpoint(large) {
+				font-size: _l(24px);
+				line-height: div(30, 24);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(24px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(24px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(24px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(24px);
+			}
+		}
+
+		h2 {
+			letter-spacing: .02em;
+			color: $blue;
+
+			@include breakpoint(medium) {
+				font-size: 1.5rem;
+			}
+
+			@include breakpoint(large) {
+				font-size: _l(48px);
+				line-height: div(65, 48);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(48px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(48px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(48px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(48px);
+			}
+		}
+	}
+
+	.text {
+		@include breakpoint(medium) {
+			padding-left: 6%;
+		}
+
+		p {
+			color: #636363;
+
+			@include breakpoint(large) {
+				font-size: _l(16px);
+				line-height: div(36, 16);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(16px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(16px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(16px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(16px);
+			}
+
+			&.more-link {
+				font-weight: 700;
+				letter-spacing: .08em;
+
+				@include breakpoint(large) {
+					font-size: _l(18px);
+					line-height: div(30, 18);
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: _xl(18px);
+				}
+
+				@include breakpoint(xxlarge) {
+					font-size: _xxl(18px);
+				}
+
+				@include breakpoint(ylarge) {
+					font-size: _xxxl(18px);
+				}
+
+				@include breakpoint(zlarge) {
+					font-size: rem-calc(18px);
+				}
+
+				a {
+					color: $blue;
+					position: relative;
+
+					&::before {
+						content: '';
+						background-color: $red;
+						width: 0;
+						height: 2px;
+						position: absolute;
+						bottom: -5px;
+						left: 0;
+						transition: all .5s;
+					}
+
+					&::after {
+						content: '';
+						background-image: image-url('right-arrow--red.png');
+						background-size: 22px 16px;
+						width: 22px;
+						height: 16px;
+						position: absolute;
+						top: 50%;
+						right: -17px;
+						transform: translate(100%, -50%);
+						transition: all .5s;
+
+						@include breakpoint(large) {
+							background-size: _l(22px) _l(16px);
+							width: _l(22px);
+							height: _l(16px);
+							right: _l(-17px);
+						}
+
+						@include breakpoint(xlarge) {
+							background-size: _xl(22px) _xl(16px);
+							width: _xl(22px);
+							height: _xl(16px);
+							right: _xl(-17px);
+						}
+
+						@include breakpoint(xxlarge) {
+							background-size: _xxl(22px) _xxl(16px);
+							width: _xxl(22px);
+							height: _xxl(16px);
+							right: _xxl(-17px);
+						}
+
+						@include breakpoint(ylarge) {
+							background-size: _xxxl(22px) _xxxl(16px);
+							width: _xxxl(22px);
+							height: _xxxl(16px);
+							right: _xxxl(-17px);
+						}
+
+						@include breakpoint(zlarge) {
+							background-size: 22px 16px;
+							width: 22px;
+							height: 16px;
+							right: -17px;
+						}
+					}
+
+					&:hover {
+						&::before {
+							width: 100%;
+						}
+
+						&::after {
+							transform: translate(50%, -50%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.custom-card {
+		display: inline-table;
+    position: relative;
+    z-index: 10;
+
+		@include breakpoint(medium down) {
+			margin-bottom: 15%;
+		}
+
+		@include breakpoint(large) {
+			width: _l(510px);
+			margin-bottom: _l(-343px);
+		}
+
+		@include breakpoint(xlarge) {
+			width: _xl(510px);
+			margin-bottom: _xl(-343px);
+		}
+
+		@include breakpoint(xxlarge) {
+			width: _xxl(510px);
+			margin-bottom: _xxl(-343px);
+		}
+
+		@include breakpoint(ylarge) {
+			width: _xxxl(510px);
+			margin-bottom: _xxxl(-343px);
+		}
+
+		@include breakpoint(zlarge) {
+			width: auto;
+			margin-bottom: -343px;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			text-align: center;
+			position: absolute;
+			bottom: -25px;
+			width: 100%;
+
+			@include breakpoint(large) {
+				bottom: _l(-25px);
+			}
+
+			@include breakpoint(xlarge) {
+				bottom: _xl(-25px);
+			}
+
+			@include breakpoint(xxlarge) {
+				bottom: _xxl(-25px);
+			}
+
+			@include breakpoint(ylarge) {
+				bottom: _xxxl(-25px);
+			}
+
+			@include breakpoint(zlarge) {
+				bottom: -25px;
+			}
+		}
+
+		h3 {
+			color: $white;
+
+			@include breakpoint(large) {
+				font-size: _l(45px);
+				line-height: div(36, 45);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(45px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(45px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(45px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(45px);
+			}
+		}
+
+		p {
+			font-weight: 700;
+			letter-spacing: .08em;
+			color: #b1c2dc;
+
+			@include breakpoint(large) {
+				font-size: _l(16px);
+				line-height: div(36, 16);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(16px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(16px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(16px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(16px);
+			}
+
+			&.custom-button {
+				line-height: div(30, 16);
+				margin-bottom: 0;
+
+				a {
+					background-color: $red;
+					color: $white;
+					display: inline-block;
+					padding: 12px 30px;
+					transition: all .5s;
+
+					@include breakpoint(large) {
+						padding: _l(12px) _l(30px);
+					}
+
+					@include breakpoint(xlarge) {
+						padding: _xl(12px) _xl(30px);
+					}
+
+					@include breakpoint(xxlarge) {
+						padding: _xxl(12px) _xxl(30px);
+					}
+
+					@include breakpoint(ylarge) {
+						padding: _xxxl(12px) _xxxl(30px);
+					}
+
+					@include breakpoint(zlarge) {
+						padding: 12px 30px;
+					}
+
+					&:hover {
+						background-color: $white;
+						color: $red;
+
+						@include kage-bunshin();
+  					@include backlight(0, 5vw, 5vw, 0.75, #0fffc1, #7e0fff, 10s);
+					}
+				}
+			}
+		}
+	}
+
+	.blue-row {
+		color: $white;
+		padding: 2em 0;
+		position: relative;
+		z-index: 0;
+
+		@include breakpoint(large) {
+			padding: 6% 0 5%;
+		}
+
+		&::before {
+			content: '';
+			background-color: $blue;
+			width: 100vw;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: calc(-50vw + 50%);
+			z-index: -1;
+		}
+
+		.practice {
+			@include breakpoint(large) {
+				padding-left: 6%;
+			}
+		}
+
+		ul {
+			list-style: none;
+			margin: 0 0 2em;
+
+			@include breakpoint(medium) {
+				column-count: 2;
+			}
+		}
+
+		li {
+			font-family: $header-font-family;
+			font-size: 1.5rem;
+			letter-spacing: .02em;
+			text-transform: uppercase;
+
+			@include breakpoint(medium) {
+				font-size: 2rem;
+			}
+
+			@include breakpoint(large) {
+				font-size: _l(48px);
+				line-height: div(65, 48);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(48px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(48px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(48px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(48px);
+			}
+
+			a {
+				color: $white;
+				transition: all .5s;
+
+				&:hover {
+					color: $red;
+					-webkit-text-stroke: 1px $white;
+				}
+			}
+		}
+
+		p {
+			&.view-all {
+				font-weight: 700;
+				letter-spacing: .08em;
+
+				@include breakpoint(large) {
+					font-size: _l(18px);
+					line-height: div(30, 18);
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: _xl(18px);
+				}
+
+				@include breakpoint(xxlarge) {
+					font-size: _xxl(18px);
+				}
+
+				@include breakpoint(ylarge) {
+					font-size: _xxxl(18px);
+				}
+
+				@include breakpoint(zlarge) {
+					font-size: rem-calc(18px);
+				}
+
+				a {
+					color: $white;
+					position: relative;
+
+					&::before {
+						content: '';
+						background-color: $red;
+						width: 0;
+						height: 2px;
+						position: absolute;
+						bottom: -5px;
+						left: 0;
+						transition: all .5s;
+					}
+
+					&::after {
+						content: '';
+						background-image: image-url('right-arrow--red.png');
+						width: 22px;
+						height: 16px;
+						position: absolute;
+						top: 50%;
+						right: -17px;
+						transform: translate(100%, -50%);
+						transition: all .5s;
+
+						@include breakpoint(large) {
+							background-size: _l(22px) _l(16px);
+							width: _l(22px);
+							height: _l(16px);
+							right: _l(-17px);
+						}
+
+						@include breakpoint(xlarge) {
+							background-size: _xl(22px) _xl(16px);
+							width: _xl(22px);
+							height: _xl(16px);
+							right: _xl(-17px);
+						}
+
+						@include breakpoint(xxlarge) {
+							background-size: _xxl(22px) _xxl(16px);
+							width: _xxl(22px);
+							height: _xxl(16px);
+							right: _xxl(-17px);
+						}
+
+						@include breakpoint(ylarge) {
+							background-size: _xxxl(22px) _xxxl(16px);
+							width: _xxxl(22px);
+							height: _xxxl(16px);
+							right: _xxxl(-17px);
+						}
+
+						@include breakpoint(zlarge) {
+							background-size: 22px 16px;
+							width: 22px;
+							height: 16px;
+							right: -17px;
+						}
+					}
+
+					&:hover {
+						&::before {
+							width: 100%;
+						}
+
+						&::after {
+							transform: translate(50%, -50%);
+						}
+					}
+				}
+			}
+		}
+	}
+}

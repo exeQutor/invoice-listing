@@ -1,0 +1,36 @@
+.wp-pagenavi {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 2em 0;
+
+	a {
+		background-color: $primary-color;
+		color: $white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		line-height: normal;
+		border-radius: 20px;
+		transition: all .5s;
+
+		&:hover {
+			background-color: $black;
+		}
+	}
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&.current {
+			background-color: $light-gray;
+			color: $black;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+		}
+	}
+}

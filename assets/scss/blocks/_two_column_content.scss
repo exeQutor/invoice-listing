@@ -1,0 +1,119 @@
+.two_column_content {
+	> .grid-container {
+		@include breakpoint(medium down) {
+			padding: 2em 1em;
+		}
+
+		@include breakpoint(large) {
+			padding: 0 16% 5%;
+		}
+	}
+
+	.content-1 {
+		@include breakpoint(small only) {
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(medium) {
+			padding-right: 1em;
+		}
+
+		@include breakpoint(large) {
+			padding-right: 6%;
+		}
+	}
+
+	.content-2 {
+		@include breakpoint(small only) {
+			margin-bottom: 2em;
+		}
+
+		@include breakpoint(medium) {
+			padding-left: 1em;
+		}
+
+		@include breakpoint(large) {
+			padding-left: 6%;
+		}
+	}
+
+	img {
+		@include breakpoint(large) {
+			margin-bottom: _l(18px);
+		}
+
+		@include breakpoint(xlarge) {
+			margin-bottom: _xl(18px);
+		}
+
+		@include breakpoint(xxlarge) {
+			margin-bottom: _xxl(18px);
+		}
+
+		@include breakpoint(ylarge) {
+			margin-bottom: _xxxl(18px);
+		}
+
+		@include breakpoint(zlarge) {
+			margin-bottom: 18px;
+		}
+	}
+
+	h3 {
+		font-size: 1.2rem;
+		color: $blue;
+		margin-bottom: 1rem;
+
+		@include breakpoint(large) {
+			font-size: _l(36px);
+		}
+
+		@include breakpoint(xlarge) {
+			font-size: _xl(36px);
+		}
+
+		@include breakpoint(xxlarge) {
+			font-size: _xxl(36px);
+		}
+
+		@include breakpoint(ylarge) {
+			font-size: _xxxl(36px);
+		}
+
+		@include breakpoint(zlarge) {
+			font-size: rem-calc(36px);
+		}
+	}
+
+	p {
+		color: #808080;
+
+		@include breakpoint(large) {
+			font-size: _l(16px);
+			line-height: div(36, 16);
+		}
+
+		@include breakpoint(xlarge) {
+			font-size: _xl(16px);
+		}
+
+		@include breakpoint(xxlarge) {
+			font-size: _xxl(16px);
+		}
+
+		@include breakpoint(ylarge) {
+			font-size: _xxxl(16px);
+		}
+
+		@include breakpoint(zlarge) {
+			font-size: rem-calc(16px);
+		}
+
+		&.has-image {
+			img.aligncenter {
+				display: block;
+				margin: 0 auto 30px;
+			}
+		}
+	}
+}

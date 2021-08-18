@@ -1,0 +1,46 @@
+.header {
+	background-color: $light-gray;
+	color: $black;
+	height: $header-height;
+
+	> .grid-container {
+		height: 100%;
+
+		> .grid-x {
+			height: 100%;
+		}
+	}
+}
+
+.header-logo {
+	display: flex;
+	align-items: center;
+	height: 100%;
+
+	a {
+		display: inline-block;
+
+		img {
+			filter: brightness(0);
+		}
+	}
+}
+
+.header-nav {
+	height: 100%;
+}
+
+.header-nav-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	list-style: none;
+	margin: 0;
+
+	a {
+		font-weight: 700;
+		color: $black;
+		text-transform: uppercase;
+	}
+}

@@ -1,0 +1,154 @@
+.hero {
+	background-size: cover;
+	position: relative;
+
+	@include breakpoint(medium down) {
+		background-position: center !important;
+	}
+
+	> .grid-container {
+		padding: 2em 1em;
+
+		@include breakpoint(large) {
+			padding: 0 16%;
+		}
+	}
+
+	.overlay {
+		background-color: rgba($cyan, .6);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		clip-path: polygon(0 0, 72% 0, 17% 100%, 0% 100%);
+	}
+
+	.content {
+		position: relative;
+		margin: 10% 0 20%;
+
+		@include breakpoint(medium) {
+			width: 40%;
+		}
+
+		h4 {
+			font-family: $body-font-family;
+			font-weight: 700;
+			font-size: 1rem;
+			letter-spacing: 0.08em;
+			color: #516b93;
+
+			@include breakpoint(large) {
+				font-size: _l(24px);
+				line-height: div(30, 24);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(24px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(24px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(24px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(24px);
+			}
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			letter-spacing: 0.02em;
+			color: $blue;
+
+			@include breakpoint(large) {
+				font-size: _l(48px);
+				line-height: div(54, 48);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: _xl(48px);
+			}
+
+			@include breakpoint(xxlarge) {
+				font-size: _xxl(48px);
+			}
+
+			@include breakpoint(ylarge) {
+				font-size: _xxxl(48px);
+			}
+
+			@include breakpoint(zlarge) {
+				font-size: rem-calc(48px);
+			}
+		}
+
+		p {
+			&.custom-button {
+				font-weight: 700;
+				font-size: .9rem;
+				margin: 21% 0 0;
+
+				@include breakpoint(large) {
+					font-size: _l(16px);
+					line-height: div(30, 16);
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: _xl(16px);
+				}
+
+				@include breakpoint(xxlarge) {
+					font-size: _xxl(16px);
+				}
+
+				@include breakpoint(ylarge) {
+					font-size: _xxxl(16px);
+				}
+
+				@include breakpoint(zlarge) {
+					font-size: rem-calc(16px);
+				}
+
+				a {
+					background-color: $red;
+					color: $white;
+					padding: 2.5% 6.5%;
+					display: inline-block;
+					transition: all .5s;
+
+					&:hover {
+						background-color: $blue;
+
+						@include kage-bunshin();
+					}
+				}
+			}
+		}
+	}
+
+	&--inner {
+		background-position: center 170px;
+
+		.overlay {
+			clip-path: polygon(0 0, 57% 0, 13.5% 100%, 0% 100%);
+		}
+
+		.content {
+			margin-bottom: 23.5%;
+
+			@include breakpoint(medium) {
+				width: 35%;
+			}
+
+			@include breakpoint(large) {
+				width: 25%;
+			}
+		}
+	}
+}
