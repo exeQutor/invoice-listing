@@ -42,6 +42,9 @@ class Burgosoft {
     // Base stylesheet (compiled Foundation SASS)
     wp_enqueue_style('app', get_template_directory_uri() . '/assets/css/app.css', [], time());
 
+		// Date Range Picker
+		wp_enqueue_style('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css', [], time());
+
     // WordPress's required styles.css
 		wp_enqueue_style('styles', get_bloginfo('stylesheet_url'), [ 'app' ]);
 
@@ -73,6 +76,12 @@ class Burgosoft {
 
     // Slick Carousel
 		wp_enqueue_script('slick', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js', ['jquery'], false, true);
+
+		// Moment JS
+		wp_enqueue_script('momentjs', 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js', ['jquery'], false, true);
+
+		// Date Range Picker
+		wp_enqueue_script('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', ['jquery'], false, true);
 
     // Load any custom javascript
     wp_enqueue_script('bm-theme', get_template_directory_uri() . '/assets/js/app.min.js', array('jquery'), time(), true);

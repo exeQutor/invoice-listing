@@ -3,6 +3,7 @@
   init_common();
   init_sticky_header();
   init_meanmenu();
+	init_invoice_dates();
   // init_stellar();
   // init_scrollto();
   // init_testimonial_slider();
@@ -12,6 +13,13 @@
   // init_header_hide3();
   // init_dummy_load_more();
 
+	function init_invoice_dates() {
+		$('input[name="invoicedates"]').daterangepicker({
+	    opens: 'left'
+	  }, function(start, end, label) {
+	    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+	  });
+	}
 
   function init_common() {
     // Foundation JavaScript
