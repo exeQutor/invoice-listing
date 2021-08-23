@@ -15,9 +15,23 @@
 
 	function init_invoice_dates() {
 		$('input[name="invoicedates"]').daterangepicker({
-	    opens: 'left'
+	    opens: 'left',
+			autoUpdateInput: false,
+			locale: {
+				cancelLabel: 'Clear'
+			}
 	  }, function(start, end, label) {
-	    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+			var url = new URL(window.location.href);
+			var search_params = url.searchParams;
+
+			search_params.set('start', start.format('YYYYMMDD'));
+			search_params.set('end', end.format('YYYYMMDD'));
+
+			url.search = search_params.toString();
+
+			var new_url = url.toString();
+
+			window.location.href = new_url;
 	  });
 	}
 
