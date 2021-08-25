@@ -66,7 +66,7 @@
 // 0. Custom
 // ---------
 
-$header-height: 100px;
+$header-height: 60px;
 $footer-height: 100px;
 
 $blue: #223a5e;
@@ -814,12 +814,12 @@ $switch-cursor-disabled: not-allowed;
 
 $table-background: $white;
 $table-color-scale: 5%;
-$table-border: 1px solid smart-scale($table-background, $table-color-scale);
+$table-border: 1px solid #e9e9eb;
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
-$table-is-striped: true;
+$table-is-striped: false;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
 $table-head-background: smart-scale($table-background, $table-color-scale / 2);

@@ -4,6 +4,10 @@
   init_sticky_header();
   init_meanmenu();
 	init_invoice_dates();
+	init_invoice_toggle_checkboxes();
+	init_invoice_mark_as_paid();
+	// init_invoice_ajax();
+
   // init_stellar();
   // init_scrollto();
   // init_testimonial_slider();
@@ -12,6 +16,80 @@
   // init_header_hide2();
   // init_header_hide3();
   // init_dummy_load_more();
+
+	function init_invoice_toggle_checkboxes() {
+		$('#select-all-invoices').change(function() {
+			var status = this.checked;
+
+			$('.invoices-checkbox').each(function() {
+				this.checked = status;
+			});
+		});
+
+		$('.invoices-checkbox').change(function() {
+			if (this.checked == false) $('#select-all-invoices')[0].checked = false;
+			if ($('.invoices-checkbox:checked').length == $('.invoices-checkbox').length) $('#select-all-invoices')[0].checked = true;
+		});
+	}
+
+	function init_invoice_mark_as_paid() {
+		$('#invoice-mark-paid').click(function() {
+			var selected = [];
+
+			$('.invoices-checkbox:checked').each(function() {
+				selected.push($(this).data('invoice-id'));
+
+				$.ajax({
+					type: 'post',
+					dataType: 'json',
+					url: OBJ.ajaxurl,
+					data: {
+						id: $(this).data('invoice-id'),
+						action: 'mark_as_paid'
+					},
+					success: function(response) {
+						console.log(response);
+					}
+				});
+			});
+
+			console.log(selected);
+		});
+
+	}
+
+	function init_invoice_ajax() {
+		$(document).on('click', '.invoice-pagenav .page-numbers', function(e) {
+			e.preventDefault();
+
+			var $this_el = $(this);
+			var page = parseInt($this_el.text());
+			var $current_page_el = $('.invoice-pagenav .page-numbers.current');
+			var current_page = parseInt($current_page_el.text());
+			var prev_page = page <= 1 ? 1 : page - 1;
+			var next_page = page >= Math.ceil(OBJ.max_invoices / 3) ? Math.ceil(OBJ.max_invoices / 3) : page + 1;
+
+			if ($this_el.hasClass('prev')) page = current_page - 1;
+			if ($this_el.hasClass('next')) page = current_page + 1;
+
+			$('.invoice-pagenav .page-numbers.prev').attr('href', OBJ.homeurl + '/invoices/page/' + prev_page + '/');
+			$('.invoice-pagenav .page-numbers.next').attr('href', OBJ.homeurl + '/invoices/page/' + next_page + '/');
+
+			$.ajax({
+				type: 'get',
+				dataType: 'json',
+				url: OBJ.apiurl + '/invoice?per_page=3&page=' + page,
+				success: function(response) {
+					console.log(response);
+
+					// if ($this_el.hasClass('prev') == false && $this_el.hasClass('next') == false) {
+						$current_page_el.replaceWith('<a class="page-numbers" href="' + OBJ.homeurl + '/invoices/page/' + current_page + '/">' + current_page + '</a>');
+						$this_el.replaceWith('<span class="page-numbers current">' + page + '</span>');
+					// }
+				}
+			});
+		});
+	}
 
 	function init_invoice_dates() {
 		$('input[name="invoicedates"]').daterangepicker({
