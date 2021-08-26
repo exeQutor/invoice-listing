@@ -36,7 +36,7 @@ function cpt_invoice() {
 		'label'                 => __( 'Invoice', 'text_domain' ),
 		'description'           => __( 'Post Type Description', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title' ),
+		'supports'              => array( 'title', 'thumbnail' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_in_rest'					=> true,

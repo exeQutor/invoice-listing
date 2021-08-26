@@ -16,7 +16,7 @@
 				</div>
 			</div>
 
-			<div class="cell large-6">
+			<div class="cell large-6 show-for-large">
 				<div class="header-user">
 					<p>Wallace Huo</p>
 				</div>

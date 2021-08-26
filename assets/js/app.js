@@ -35,6 +35,9 @@
 	function init_invoice_mark_as_paid() {
 		$('#invoice-mark-paid').click(function() {
 			var selected = [];
+			var $this_button = $(this);
+
+			$this_button.prop('disabled', true);
 
 			$('.invoices-checkbox:checked').each(function() {
 				selected.push($(this).data('invoice-id'));
@@ -48,12 +51,14 @@
 						action: 'mark_as_paid'
 					},
 					success: function(response) {
-						console.log(response);
+						if (response.result) {
+							$('.status-' + response.id).removeClass('pending verified').addClass('paid').text('PAID');
+						}
+
+						$this_button.prop('disabled', false);
 					}
 				});
 			});
-
-			console.log(selected);
 		});
 
 	}
@@ -80,7 +85,6 @@
 				dataType: 'json',
 				url: OBJ.apiurl + '/invoice?per_page=3&page=' + page,
 				success: function(response) {
-					console.log(response);
 
 					// if ($this_el.hasClass('prev') == false && $this_el.hasClass('next') == false) {
 						$current_page_el.replaceWith('<a class="page-numbers" href="' + OBJ.homeurl + '/invoices/page/' + current_page + '/">' + current_page + '</a>');
@@ -136,10 +140,11 @@
   }
 
   function init_meanmenu() {
-    $('.sticky-header .header-nav').meanmenu({
-      meanMenuContainer: '.header-mobile-nav',
+    $('.header-nav').meanmenu({
+      // meanMenuContainer: '.header-mobile-nav',
       meanScreenWidth: 1023,
       meanRemoveAttrs: true,
+			meanMenuOpen: '<div class="burger"></div>',
       // removeElements: '.header-phone'
     });
   }

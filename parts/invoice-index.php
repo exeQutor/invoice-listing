@@ -4,15 +4,17 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args = array(
 	'post_type'=>'invoice',
-	'posts_per_page' => 3,
+	'posts_per_page' => 12,
 	'paged' => $paged,
 	's' => get_search_query()
 );
 
+// assign and sanitize url parameters
 $start_date = isset($_GET['start']) ? sanitize_text_field($_GET['start']) : '';
 $end_date = isset($_GET['end']) ? sanitize_text_field($_GET['end']) : '';
 $status = isset($_GET['status']) ? sanitize_text_field($_GET['status']) : '';
 
+// if set, add start date and end date to meta query
 if ($start_date && $end_date) {
 	$today = date('Ymd');
 	$start_date = sanitize_text_field($_GET['start']);
@@ -34,9 +36,11 @@ if ($start_date && $end_date) {
 
 $cpt_invoice = new WP_Query($args);
 
+// if set, add start date and end date to query vars
 if ($start_date) $wp->query_vars['start'] = $start_date;
 if ($end_date) $wp->query_vars['end'] = $end_date;
 
+// start with an empty date picker but add a placeholder
 $date_picker_start = $start_date ? DateTime::createFromFormat('Ymd', $start_date)->format('m/d/Y') : date('m/d/Y');
 $date_picker_end = $end_date ? DateTime::createFromFormat('Ymd', $end_date)->format('m/d/Y') : date('m/d/Y', strtotime('+5 days'));
 $date_picker_value = $start_date && $end_date ? $date_picker_start . ' - ' . $date_picker_end : '';
@@ -111,10 +115,17 @@ $date_picker_value = $start_date && $end_date ? $date_picker_start . ' - ' . $da
 						<?php while ($cpt_invoice->have_posts()): $cpt_invoice->the_post() ?>
 							<?php $status = get_field('status') ?>
 							<tr>
-								<td><input class="invoices-checkbox" type="checkbox" name="invoice-<?php echo the_ID() ?>" data-invoice-id="<?php echo the_ID() ?>"></td>
+								<td><input class="invoices-checkbox" type="checkbox" name="invoice-<?php echo the_ID() ?>" data-invoice-id="<?php the_ID() ?>"></td>
 								<td>#<?php the_ID() ?></td>
-								<td class="restaurant"><?php the_title() ?></td>
-								<td class="text-center"><span class="status <?php echo $status['value'] ?>"><?php echo $status['label'] ?></span></td>
+								<td class="restaurant">
+									<?php if (has_post_thumbnail()):
+										the_post_thumbnail('thumbnail');
+										else: ?>
+										<img class="wp-post-image" src="https://picsum.photos/200?random=<?php echo the_ID() ?>" alt="">
+									<?php endif ?>
+									<?php the_title() ?>
+								</td>
+								<td class="text-center"><span class="status status-<?php the_ID() ?> <?php echo $status['value'] ?>"><?php echo $status['label'] ?></span></td>
 								<td class="text-center"><?php echo date('d/m/Y', strtotime(get_field('start_date'))) ?></td>
 								<td class="text-center"><?php echo date('d/m/Y', strtotime(get_field('end_date'))) ?></td>
 								<td class="text-center">HK$<?php the_field('total') ?></td>
@@ -154,7 +165,10 @@ $date_picker_value = $start_date && $end_date ? $date_picker_start . ' - ' . $da
 
 				<?php else: ?>
 
-					<p>No invoices found.</p>
+					<div class="callout warning">
+					  <h5>No invoices found</h5>
+					  <p>Please review your search term, status filter, or date range options.</p>
+					</div>
 
 				<?php endif; wp_reset_postdata(); ?>
 			</div>

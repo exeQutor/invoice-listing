@@ -1,7 +1,11 @@
 .invoice-section {
 	.grid-container {
-		padding: 3rem 0;
-		max-width: 1360px;
+		padding: 2rem 1rem;
+
+		@include breakpoint(large) {
+			padding: 3rem 0 5rem;
+			max-width: 1360px;
+		}
 	}
 
 	h1 {
@@ -15,10 +19,20 @@
 	justify-content: space-between;
 	margin-top: 1.4rem;
 	margin-bottom: 20px;
+
+	@include breakpoint(medium down) {
+		flex-direction: column;
+	}
 }
 
 .invoice-filter {
-	margin-right: 18%;
+	@include breakpoint(large) {
+		margin-right: 18%;
+	}
+
+	@include breakpoint(medium down) {
+		margin-bottom: 1rem;
+	}
 
 	ul {
 		display: flex;
@@ -65,6 +79,10 @@
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
+	@include breakpoint(medium down) {
+		margin-bottom: 1rem;
+	}
+
 	label {
 		display: flex;
 		align-items: center;
@@ -105,6 +123,10 @@
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
+	@include breakpoint(medium down) {
+		margin-bottom: 1rem;
+	}
+
 	input {
 		font-size: 1.1rem;
 		border: 0;
@@ -132,7 +154,11 @@
 		height: 44px;
 		margin-bottom: 0;
 
-		&:hover {
+		&:hover,
+		&:active,
+		&[disabled],
+		&[disabled]:hover,
+		&[disabled]:focus {
 			background-color: #fcad3e;
 		}
 	}
@@ -146,14 +172,22 @@
 			transition: all .5s;
 
 			&:hover {
-				transform: scale(1.025);
-				box-shadow:
-					0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-					0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-					0 12.5px 10px rgba(0, 0, 0, 0.06),
-					0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-					0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-					0 100px 80px rgba(0, 0, 0, 0.12);
+				@include breakpoint(large) {
+					transform: scale(1.025);
+					box-shadow:
+						0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+						0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+						0 12.5px 10px rgba(0, 0, 0, 0.06),
+						0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+						0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+						0 100px 80px rgba(0, 0, 0, 0.12);
+				}
+			}
+		}
+
+		&:nth-of-type(odd) {
+			@include breakpoint(medium down) {
+				background: #eee;
 			}
 		}
 	}
@@ -163,17 +197,57 @@
 		font-size: 0.9rem;
 		color: #787a87;
 		text-transform: uppercase;
+
+		@include breakpoint(medium down) {
+			display: none;
+		}
 	}
 
 	td {
 		height: rem-calc(60px);
 
+		@include breakpoint(medium down) {
+			display: flex;
+			align-items: center;
+			padding-left: 40%;
+		}
+
+		&.text-center {
+			@include breakpoint(medium down) {
+				text-align: left;
+			}
+		}
+
 		&:first-child {
-			text-align: center;
+			@include breakpoint(large) {
+				text-align: center;
+			}
 		}
 
 		&.restaurant {
 			font-size: 1.2rem;
+		}
+
+		@include breakpoint(medium down) {
+			&:before {
+				width: 40%;
+				position: absolute;
+				left: 2rem;
+				white-space: nowrap;
+				text-align: left;
+				font-size: 1rem;
+			}
+
+			&:first-child:before { content: "Select"; }
+			&:nth-of-type(2):before { content: "ID"; }
+			&:nth-of-type(3):before { content: "Restaurant"; }
+			&:nth-of-type(4):before { content: "Status"; }
+			&:nth-of-type(5):before { content: "Start Date"; }
+			&:nth-of-type(6):before { content: "End Date"; }
+			&:nth-of-type(7):before { content: "Total"; }
+			&:nth-of-type(8):before { content: "Fees"; }
+			&:nth-of-type(9):before { content: "Transfer"; }
+			&:nth-of-type(10):before { content: "Orders"; }
 		}
 
 		span {
@@ -183,9 +257,12 @@
 				letter-spacing: 0.05rem;
 				text-align: center;
 				border-radius: 1rem;
-				display: inline-block;
-				min-width: 85%;
 				padding: 0.25rem 0.5rem;
+
+				@include breakpoint(large) {
+					min-width: 85%;
+					display: inline-block;
+				}
 
 				&.verified {
 					background-color: #47c292;
@@ -209,6 +286,13 @@
 		width: 20px;
 		height: 20px;
 		margin-bottom: 0;
+	}
+
+	.wp-post-image {
+		width: 32px;
+		height: 32px;
+		border-radius: 5px;
+		margin-right: 5px;
 	}
 }
 
@@ -242,6 +326,7 @@
 	border: 1px solid #ececec;
 	border-radius: 5px;
 	overflow: hidden;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
 	.page-numbers {
 		font-size: 0.9rem;
